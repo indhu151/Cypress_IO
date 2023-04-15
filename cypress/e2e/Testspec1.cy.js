@@ -7,6 +7,10 @@ describe("Login details",()=>{
         LoginPage.setusername_tf(data.username)
         LoginPage.setPassword_tf(data.password)
         LoginPage.clickOnSubmit()
-        })   // expect(acname).to.equal(expname)
+       })   // expect(acname).to.equal(expname)
+       cy.writeFile('cypress/fixtures/Commondata1.pdf',"12345")
+       cy.readFile('cypress/fixtures/Commondata1.pdf').then(data=>{
+        cy.log(data)
+       })
         })
     })
