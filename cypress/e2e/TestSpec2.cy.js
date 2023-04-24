@@ -1,0 +1,15 @@
+describe("amazon.in",()=>{
+    it("handling cart",()=>{
+        cy.visit("https://www.amazon.in/")
+        cy.title().should('eq','Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in')
+        cy.get('#twotabsearchtextbox').type('iphone 14{enter}')
+        cy.title().should('contain','Amazon.in : iphone 14')
+        cy.get('.a-size-medium.a-color-base.a-text-normal').contains('Apple iPhone 14 (128 GB) - Midnight')
+        .parent()
+        .invoke('removeAttr','target')
+        .click()
+        cy.url().should('include','Apple-iPhone-14-128GB-Midnight/dp/B0BDHX8Z63')
+        cy.get('#add-to-cart-button').should('exist').click()
+        cy.get('.a-size-medium-plus.a-color-base.sw-atc-text.a-text-bold').should('contain','Added to Cart')
+    })
+})

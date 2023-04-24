@@ -1,0 +1,10 @@
+describe("checkbox",()=>{
+    it.skip("handling",()=>{
+        cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/")
+        cy.get('input[value="Bike"]').check().should('be.checked')
+    })
+    it("multiple",()=>{
+        cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/")
+        cy.get('input[type="checkbox"]').check().should('be.checked')
+    })
+})
